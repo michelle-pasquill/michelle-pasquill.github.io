@@ -60,9 +60,10 @@ window.onload = function() {
 
   // Createjs
   function loadCanvas() {
+    stage = new createjs.Stage("gameCanvas");
+
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", stage);
-    stage = new createjs.Stage("gameCanvas");
 
     loadBar = new createjs.Shape();
     loadBar.graphics.beginFill("blue").drawRect(0, 165, 1, 20).endFill();
