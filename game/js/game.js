@@ -16,6 +16,8 @@ var nextScene = 1;
 
 var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
 
+console.log($("#prev"));
+
 // Page button listeners
 function switchPage(type) {
   var scene;
@@ -49,6 +51,7 @@ $("#prev").click(function() {
 });
 
 $("#next").click(function() {
+  console.log("here");
   switchPage("next");
 });
 
