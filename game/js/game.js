@@ -187,10 +187,10 @@ window.onload = function() {
     ship.x = 200;
     ship.y = bounds.height - 150;
 
-    stage.update();
-
     // Move ship up
     createjs.Tween.get(ship).to({y: -100}, 5000);
+
+    stage.update();
 
   }
 
@@ -203,10 +203,10 @@ window.onload = function() {
     ship.x = bounds.width;
     ship.y = bounds.height / 2;
 
-    stage.update();
-
     // Move ship left
     createjs.Tween.get(ship).to({x: -100}, 10000);
+
+    stage.update();
 
   }
 
