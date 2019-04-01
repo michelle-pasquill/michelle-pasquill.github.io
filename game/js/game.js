@@ -11,10 +11,48 @@ var currSprites = {};
 var queue;
 var loadBar;
 
-
+var prevScene = 0;
+var nextScene = 1;
 
 var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
 
+// Page button listeners
+function switchPage(type) {
+  var scene;
+  if (type == "prev") {
+    scene = prevScene;
+  } else {
+    scene = nextScene;
+  }
+
+  if (scene == 0) {
+    resetSprites();
+    scene0();
+  } else if (scene == 1) {
+    scene1();
+  } else if (scene == 2) {
+    scene2();
+  }
+
+  // Update prev and next
+  if (scene == 0) {
+    prevScene = 0;
+    nextScene = 1;
+  } else {
+    prevScene = scene - 1;
+    nextScene = scene + 1;
+  }
+}
+
+$("#prev").click(function() {
+  switchPage("prev");
+});
+
+$("#next").click(function() {
+  switchPage("next");
+});
+
+// Createjs
 function loadCanvas() {
   stage = new createjs.Stage("gameCanvas");
 
