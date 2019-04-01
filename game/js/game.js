@@ -17,6 +17,8 @@ window.onload = function() {
 
   // Page button listeners
   function switchPage(type) {
+    resetSprites();
+
     var scene;
     if (type == "prev") {
       scene = prevScene;
@@ -25,7 +27,6 @@ window.onload = function() {
     }
 
     if (scene == 0) {
-      resetSprites();
       scene0();
     } else if (scene == 1) {
       scene1();
@@ -139,9 +140,10 @@ window.onload = function() {
   }
 
   function scene1() {
-    console.log("scene1");
 
-    resetSprites();
+    // Get planet Image
+    var bg = queue.getResult("planetBG");
+    loadBackground(bg);
 
     // Add alien
     var alien = addSprite("alienStand");
@@ -163,13 +165,58 @@ window.onload = function() {
 
   function scene2() {
 
-    resetSprites();
-
     var bg = queue.getResult("spaceBG");
     loadBackground(bg);
 
     stage.update();
 
+  }
+
+  function scene3() {
+
+    var bg = queue.getResult("planetBG");
+    loadBackground(bg);
+
+    // Spaceship
+    var ship = addSprite("ship");
+    ship.x = 200;
+    ship.y = bounds.height - 150;
+
+    stage.update();
+
+    // Move ship up
+    createjs.Tween.get(ship).to({y: -100}, 5000);
+
+  }
+
+  function scene4() {
+    var bg = queue.getResult("spaceBG");
+    loadBackground(bg);
+
+    // Spaceship
+    var ship = addSprite("ship");
+    ship.x = bounds.width;
+    ship.y = bounds.height / 2;
+
+    stage.update();
+
+    // Move ship left
+    createjs.Tween.get(ship).to({x: -100}, 10000);
+
+  }
+
+  function scene5() {
+    var bg = queue.getResult("spaceBG");
+    loadBackground(bg);
+
+    // Spaceship
+    var ship = addSprite("ship");
+    ship.x = bounds.width - 200;
+    ship.y = bounds.height / 2;
+
+    var earth = addSprite("earth");
+    earth.x = 100;
+    earth.y = bounds.height - 100;
   }
 
 };
