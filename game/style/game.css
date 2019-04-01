@@ -1,14 +1,14 @@
 #game {
   margin: auto;
-  width: 990;
-  height: 700;
+  width: 990px;
+  height: 700px;
   display: flex;
   flex-direction: column;
 }
 
 #textBox {
   width: 100%;
-  height: 150;
+  height: 150px;
   border-bottom: 2px solid lightgrey;
   border-left: 2px solid lightgrey;
   border-right: 2px solid lightgrey;
@@ -16,8 +16,8 @@
 }
 
 button {
-  padding: 10px;
-  font-size: 20px;
+  padding: 5px;
+  font-size: 14px;
   color: #161616;
   background-color: #EFEFEF;
   border: 2px solid #AAAAAA;
