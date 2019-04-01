@@ -16,7 +16,7 @@ var nextScene = 1;
 
 var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
 
-console.log($("#prev"));
+console.log($("#prev").html());
 
 // Page button listeners
 function switchPage(type) {
