@@ -16,8 +16,6 @@ var nextScene = 1;
 
 var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
 
-console.log($("#prev").html());
-
 // Page button listeners
 function switchPage(type) {
   var scene;
@@ -46,11 +44,11 @@ function switchPage(type) {
   }
 }
 
-$("#prev").click(function() {
+document.getElementById("prev").addEventListener("click", function() {
   switchPage("prev");
 });
 
-$("#next").click(function() {
+document.getElementById("next").addEventListener("click", function() {
   console.log("here");
   switchPage("next");
 });
@@ -60,7 +58,7 @@ function loadCanvas() {
   stage = new createjs.Stage("gameCanvas");
 
   loadBar = new createjs.Shape();
-  loadBar.graphics.beginFill("blue").drawRect(0, 0, 1, 20).endFill();
+  loadBar.graphics.beginFill("blue").drawRect(0, 265, 1, 20).endFill();
 
   stage.addChild(loadBar);
 
@@ -96,7 +94,7 @@ function start() {
 }
 
 function setBar(e) {
-  loadBar.scaleX = e.progress * 300;
+  loadBar.scaleX = e.progress * 990;
   stage.update();
 }
 
