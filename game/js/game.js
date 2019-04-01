@@ -32,6 +32,12 @@ window.onload = function() {
       scene1();
     } else if (scene == 2) {
       scene2();
+    } else if (scene == 3) {
+      scene3();
+    } else if (scene == 4) {
+      scene2();
+    } else if (scene == 5) {
+      scene2();
     }
 
     // Update prev and next
@@ -49,7 +55,6 @@ window.onload = function() {
   });
 
   $("#next").click(function() {
-    console.log("here");
     switchPage("next");
   });
 
