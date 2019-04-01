@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #161616;
+  margin: auto;
+}
+
+header {
+  font-size: 20px;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
