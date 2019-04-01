@@ -122,3 +122,14 @@ function scene1() {
   stage.update();
 
 }
+
+function scene2() {
+
+  resetSprites();
+
+  var bg = queue.getResult("spaceBG");
+  loadBackground(bg);
+
+  stage.update();
+
+}
