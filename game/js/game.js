@@ -35,9 +35,9 @@ window.onload = function() {
     } else if (scene == 3) {
       scene3();
     } else if (scene == 4) {
-      scene2();
+      scene4();
     } else if (scene == 5) {
-      scene2();
+      scene5();
     }
 
     // Update prev and next
@@ -62,7 +62,7 @@ window.onload = function() {
   function loadCanvas() {
     stage = new createjs.Stage("gameCanvas");
 
-    createjs.Ticker.setFPS(60);
+    createjs.Ticker.framerate = 60;
     createjs.Ticker.addEventListener("tick", stage);
 
     loadBar = new createjs.Shape();
@@ -90,7 +90,7 @@ window.onload = function() {
     queue.on("progress", setBar);
     queue.on("complete", start, this);
 
-    //stage.update();
+
   }
 
   function start() {
@@ -103,7 +103,7 @@ window.onload = function() {
 
   function setBar(e) {
     loadBar.scaleX = e.progress * 990;
-    //stage.update();
+
   }
 
   function loadBackground(bg) {
@@ -115,7 +115,7 @@ window.onload = function() {
     // Add new background
     background = new createjs.Bitmap(bg);
     stage.addChild(background);
-    //stage.update();
+
     bounds = background.getBounds();
   }
 
@@ -144,7 +144,7 @@ window.onload = function() {
     alien.x = bounds.width / 2;
     alien.y = bounds.height - 150;
 
-    //stage.update();
+
   }
 
   function scene1() {
@@ -167,7 +167,7 @@ window.onload = function() {
     p1.x = bounds.width - 300;
     p1.y = bounds.height - 150;
 
-    //stage.update();
+
 
   }
 
@@ -176,7 +176,7 @@ window.onload = function() {
     var bg = queue.getResult("spaceBG");
     loadBackground(bg);
 
-    //stage.update();
+
 
   }
 
@@ -187,13 +187,12 @@ window.onload = function() {
 
     // Spaceship
     var ship = addSprite("ship");
-    ship.x = 200;
+    ship.x = (bounds.width / 2) - 100;
     ship.y = bounds.height - 150;
 
-    //stage.update();
 
     // Move ship up
-    createjs.Tween.get(ship).to({y: 0}, 5000);
+    createjs.Tween.get(ship).to({y: -100}, 5000);
 
   }
 
@@ -206,10 +205,9 @@ window.onload = function() {
     ship.x = bounds.width;
     ship.y = bounds.height / 2;
 
-    //stage.update();
 
     // Move ship left
-    createjs.Tween.get(ship).to({x: 0}, 10000);
+    createjs.Tween.get(ship).to({x: -200}, 10000);
 
   }
 
