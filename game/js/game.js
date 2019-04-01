@@ -6,6 +6,7 @@ var stage;
 
 var background;
 var bounds;
+var currSprites = {};
 
 var queue;
 var loadBar;
@@ -60,10 +61,31 @@ function setBar(e) {
 }
 
 function loadBackground(bg) {
+  // remove current background if there is one
+  if (background != null) {
+    stage.removeChild(background);
+    background = null;
+  }
+  // Add new background
   background = new createjs.Bitmap(bg);
   stage.addChild(background);
   stage.update();
   bounds = background.getBounds();
+}
+
+function addSprite(id) {
+  var img = queue.getResult(id);
+  var bm = new createjs.Bitmap(img);
+  currSprites[id] = bm;
+  stage.addChild(bm);
+  return bm;
+}
+
+function resetSprites() {
+  for(var key in currSprites) {
+    stage.removeChild(currSprites[key]);
+  }
+  currSprites = {};
 }
 
 function scene0() {
@@ -71,12 +93,32 @@ function scene0() {
   var bg = queue.getResult("planetBG");
   loadBackground(bg);
 
-  // Get alien sprite
-  var alienImg = queue.getResult("alienTurn");
-  var alienBm = new createjs.Bitmap(alienImg);
-  alienBm.x = bounds.width / 2;
-  alienBm.y = bounds.height - 150;
-  stage.addChild(alienBm);
+  // Put alien sprite
+  var alien = addSprite("alienTurn");
+  alien.x = bounds.width / 2;
+  alien.y = bounds.height - 150;
 
   stage.update();
+}
+
+function scene1() {
+
+  resetSprites();
+
+  // Add alien
+  var alien = addSprite("alienStand");
+  alien.x = 200;
+  alien.y = bounds.height - 150;
+
+  // Add parents
+  var p0 = addSprite("p0");
+  p0.x = bounds.width - 200;
+  p0.y = bounds.height - 150;
+
+  var p1 = addSprite("p1");
+  p1.x = bounds.width - 300;
+  p1.y = bounds.height - 150;
+
+  stage.update();
+
 }
