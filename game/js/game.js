@@ -85,7 +85,6 @@ function loadCanvas() {
 }
 
 function start() {
-  console.log("start");
   // Remove load bar.
   stage.removeChild(loadBar);
 
@@ -140,6 +139,7 @@ function scene0() {
 }
 
 function scene1() {
+  console.log("scene1");
 
   resetSprites();
 
