@@ -14,6 +14,9 @@ window.onload = function() {
   var nextScene = 1;
 
   var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
+  var visiting = false;
+
+  var responseNeeded = false;
 
   // Page button listeners
   function switchPage(type) {
@@ -68,7 +71,7 @@ window.onload = function() {
       nextScene = 1;
     } else if (scene == 16) {
       prevScene = scene - 1;
-      nextScene = 16;
+      nextScene = scene;
     } else {
       prevScene = scene - 1;
       nextScene = scene + 1;
@@ -76,16 +79,51 @@ window.onload = function() {
   }
 
   $("#prev").click(function() {
-    switchPage("prev");
+    if (!responseNeeded && !visiting) {
+      switchPage("prev");
+    } else if (!responseNeeded && visiting) {
+      nextPlace();
+    }
   });
 
   $("#next").click(function() {
-    switchPage("next");
+    if (!responseNeeded && !visiting) {
+      switchPage("next");
+    } else if (!responseNeeded && visiting) {
+      nextPlace();
+    }
+  });
+
+  $("#beachBtn").click(function() {
+    responseNeeded = false;
+    beachScene();
+  });
+
+  $("#desertBtn").click(function() {
+    responseNeeded = false;
+    desertScene();
+  });
+
+  $("#mountainBtn").click(function() {
+    responseNeeded = false;
+    mountainScene();
+  });
+
+  $("#waterfallBtn").click(function() {
+    responseNeeded = false;
+    waterfallScene();
+  });
+
+  $("#forestBtn").click(function() {
+    responseNeeded = false;
+    forestScene();
   });
 
   // Createjs
   function loadCanvas() {
     stage = new createjs.Stage("gameCanvas");
+
+    $("#destButtons").hide();
 
     createjs.Ticker.framerate = 60;
     createjs.Ticker.addEventListener("tick", stage);
@@ -227,12 +265,16 @@ window.onload = function() {
 
     // Spaceship
     var ship = addSprite("ship");
-    ship.x = bounds.width;
-    ship.y = (bounds.height / 2) - 100;
+    ship.x = bounds.width - 250;
+    ship.y = (bounds.height / 2) - 200;
+
+    var earth = addSprite("earth");
+    earth.x = -600;
+    earth.y = bounds.height - 300;
 
 
-    // Move ship left
-    createjs.Tween.get(ship).to({x: -200}, 10000);
+    // Move earth right
+    createjs.Tween.get(earth).to({x: 100}, 10000);
 
   }
 
@@ -248,26 +290,33 @@ window.onload = function() {
     var earth = addSprite("earth");
     earth.x = 100;
     earth.y = bounds.height - 300;
+
+    // Set question text
+    var question = "Quel endroit pensez-vous Uzek devrait visiter en premier?";
+    $("#text").text(question);
+
+    enableChoices();
   }
 
   function scene6() {
     var bg = queue.getResult("spaceBG");
     loadBackground(bg);
 
+    var earth = addSprite("earth");
+    earth.x = 100;
+    earth.y = bounds.height - 300;
+
     // Spaceship
     var ship = addSprite("ship");
     ship.x = bounds.width - 250;
     ship.y = (bounds.height / 2) - 200;
-
-    var earth = addSprite("earth");
-    earth.x = 100;
-    earth.y = bounds.height - 300;
 
     createjs.Tween.get(ship).to({x: earth.x + 250, y: earth.y + 250, scale: 0}, 3000);
   }
 
   function scene7() {
     // This scene calls all of the location scenes
+
   }
 
   function scene8() {
@@ -344,9 +393,55 @@ window.onload = function() {
     scene0();
   }
 
+  function enableChoices() {
+    // If there are more than one unvisited places, then show options
+    if (unvisited.length > 1) {
+      visiting = true;
+      responseNeeded = true;
+      $("#destButtons").show();
+      // Hide any button that is visited
+      if (!unvisited.includes("Beach")) {
+        $("#beachBtn").hide();
+      }
+      if (!unvisited.includes("Desert")) {
+        $("#desertBtn").hide();
+      }
+      if (!unvisited.includes("Mountains")) {
+        $("#mountainBtn").hide();
+      }
+      if (!unvisited.includes("Waterfall")) {
+        $("#waterfallBtn").hide();
+      }
+      if (!unvisited.includes("Forest")) {
+        $("#forestBtn").hide();
+      }
+    } else {
+      visiting = false;
+      // Otherwise show the last place
+      if (unvisited.includes("Beach")) {
+        beachScene();
+      } else if (unvisited.includes("Desert")) {
+        desertScene();
+      } else if (unvisited.includes("Mountains")) {
+        mountainScene();
+      } else if (unvisited.includes("Waterfall")) {
+        waterfallScene();
+      } else if (unvisited.includes("Forest")) {
+        forestScene();
+      }
+    }
+  }
 
   function nextPlace() {
-    // Set buttons and text
+    if (unvisited.length >= 1) {
+      // Set question text
+      var question = "Quel endroit pensez-vous Uzek devrait visiter ensuite?";
+      $("#text").text(question);
+      // Set buttons
+      enableChoices();
+    } else {
+      responseNeeded = false;
+    }
   }
 
   function slideShow() {
@@ -392,6 +487,54 @@ window.onload = function() {
 
   }
 
+  function beachScene() {
+    var bg = queue.getResult("beachBG");
+    loadBackground(bg);
 
+    // Add alien
+    var alien = addSprite("alienStand");
+    alien.x = 200;
+    alien.y = bounds.height - 150;
+  }
+
+  function desertScene() {
+    var bg = queue.getResult("beachBG");
+    loadBackground(bg);
+
+    // Add alien
+    var alien = addSprite("alienStand");
+    alien.x = 200;
+    alien.y = bounds.height - 100;
+  }
+
+  function mountainScene() {
+    var bg = queue.getResult("beachBG");
+    loadBackground(bg);
+
+    // Add alien
+    var alien = addSprite("alienStand");
+    alien.x = 200;
+    alien.y = bounds.height - 150;
+  }
+
+  function waterfallScene() {
+    var bg = queue.getResult("beachBG");
+    loadBackground(bg);
+
+    // Add alien
+    var alien = addSprite("alienStand");
+    alien.x = 200;
+    alien.y = bounds.height - 150;
+  }
+
+  function forestScene() {
+    var bg = queue.getResult("beachBG");
+    loadBackground(bg);
+
+    // Add alien
+    var alien = addSprite("alienStand");
+    alien.x = 200;
+    alien.y = bounds.height - 150;
+  }
 
 };
