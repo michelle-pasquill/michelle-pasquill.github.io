@@ -498,7 +498,7 @@ window.onload = function() {
   }
 
   function desertScene() {
-    var bg = queue.getResult("beachBG");
+    var bg = queue.getResult("desertBG");
     loadBackground(bg);
 
     // Add alien
@@ -508,7 +508,7 @@ window.onload = function() {
   }
 
   function mountainScene() {
-    var bg = queue.getResult("beachBG");
+    var bg = queue.getResult("mountainBG");
     loadBackground(bg);
 
     // Add alien
@@ -518,7 +518,7 @@ window.onload = function() {
   }
 
   function waterfallScene() {
-    var bg = queue.getResult("beachBG");
+    var bg = queue.getResult("waterfallBG");
     loadBackground(bg);
 
     // Add alien
@@ -528,7 +528,7 @@ window.onload = function() {
   }
 
   function forestScene() {
-    var bg = queue.getResult("beachBG");
+    var bg = queue.getResult("forestBG");
     loadBackground(bg);
 
     // Add alien
