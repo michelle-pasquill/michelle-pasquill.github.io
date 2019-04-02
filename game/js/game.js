@@ -497,7 +497,7 @@ window.onload = function() {
       " montagnes. Il aime la grande taille des montagnes et il est "+
       "tr&egrave;s curieux avec les nuages. Le myst&egrave;re du sommet" +
       " des montages est la raison les montagnes sont l&rsquo;endroit " +
-      "pr&eacute;f&eacute;r&eacute; d&rsquo;Uzek.":
+      "pr&eacute;f&eacute;r&eacute; d&rsquo;Uzek.";
     } else if (place == "waterfallBG") {
       text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;, la" +
       " cascade. Il d&eacute;crit l&rsquo;eau et l&rsquo;&eacute;coulement " +
