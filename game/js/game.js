@@ -88,6 +88,7 @@ window.onload = function() {
   });
 
   $("#next").click(function() {
+    console.log(responseNeeded);
     if (!responseNeeded && !visiting) {
       switchPage("next");
     } else if (!responseNeeded && visiting) {
@@ -100,6 +101,8 @@ window.onload = function() {
     currPlace = "la plage";
     if (visiting) {
       beachScene();
+    } else {
+      switchPage("next");
     }
   });
 
@@ -108,6 +111,8 @@ window.onload = function() {
     currPlace = "le d&eacute;sert";
     if (visiting) {
       desertScene();
+    } else {
+      switchPage("next");
     }
   });
 
@@ -116,6 +121,8 @@ window.onload = function() {
     currPlace = "les montagnes";
     if (visiting) {
       mountainScene();
+    } else {
+      switchPage("next");
     }
   });
 
@@ -124,6 +131,8 @@ window.onload = function() {
     currPlace = "la cascade";
     if (visiting) {
       waterfallScene();
+    } else {
+      switchPage("next");
     }
   });
 
@@ -132,6 +141,8 @@ window.onload = function() {
     currPlace = "la for&ecirc;t";
     if (visiting) {
       forestScene();
+    } else {
+      switchPage("next");
     }
   });
 
