@@ -586,26 +586,26 @@ window.onload = function() {
     setTimeout(function() {
       createjs.Tween.get(beach).to({x: end}, 1000);
       createjs.Tween.get(mountain).to({x: 0}, 1000);
-    }, 5000);
+    }, 4000);
 
     setTimeout(function() {
       createjs.Tween.get(mountain).to({x: end}, 1000);
       createjs.Tween.get(forest).to({x: 0}, 1000);
-    }, 10000);
+    }, 8000);
 
     setTimeout(function() {
       createjs.Tween.get(forest).to({x: end}, 1000);
       createjs.Tween.get(waterfall).to({x: 0}, 1000);
-    }, 15000);
+    }, 12000);
 
     setTimeout(function() {
       createjs.Tween.get(waterfall).to({x: end}, 1000);
       createjs.Tween.get(desert).to({x: 0}, 1000);
-    }, 20000);
+    }, 16000);
 
     setTimeout(function() {
       createjs.Tween.get(desert).to({x: end}, 1000);
-    }, 25000);
+    }, 20000);
 
   }
 
