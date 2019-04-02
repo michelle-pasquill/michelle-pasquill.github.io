@@ -542,6 +542,10 @@ window.onload = function() {
   }
 
   function beachScene() {
+    // Remove from unvisited
+    var i = unvisited.indexOf("Beach");
+    unvisited.splice(i, 1);
+
     var bg = queue.getResult("beachBG");
     loadBackground(bg);
 
@@ -552,16 +556,24 @@ window.onload = function() {
   }
 
   function desertScene() {
+    // Remove from unvisited
+    var i = unvisited.indexOf("Desert");
+    unvisited.splice(i, 1);
+
     var bg = queue.getResult("desertBG");
     loadBackground(bg);
 
     // Add alien
     var alien = addSprite("alienStand");
     alien.x = 200;
-    alien.y = bounds.height - 100;
+    alien.y = bounds.height - 130;
   }
 
   function mountainScene() {
+    // Remove from unvisited
+    var i = unvisited.indexOf("Mountains");
+    unvisited.splice(i, 1);
+
     var bg = queue.getResult("mountainBG");
     loadBackground(bg);
 
@@ -572,6 +584,10 @@ window.onload = function() {
   }
 
   function waterfallScene() {
+    // Remove from unvisited
+    var i = unvisited.indexOf("Waterfall");
+    unvisited.splice(i, 1);
+
     var bg = queue.getResult("waterfallBG");
     loadBackground(bg);
 
@@ -582,6 +598,10 @@ window.onload = function() {
   }
 
   function forestScene() {
+    // Remove from unvisited
+    var i = unvisited.indexOf("Forest");
+    unvisited.splice(i, 1);
+
     var bg = queue.getResult("forestBG");
     loadBackground(bg);
 
