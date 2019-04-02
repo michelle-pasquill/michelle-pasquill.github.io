@@ -16,6 +16,7 @@ window.onload = function() {
   var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
   var currPlace;
   var visiting = false;
+  var favourite = false;
 
   var responseNeeded = false;
 
@@ -88,7 +89,6 @@ window.onload = function() {
   });
 
   $("#next").click(function() {
-    console.log(responseNeeded);
     if (!responseNeeded && !visiting) {
       switchPage("next");
     } else if (!responseNeeded && visiting) {
@@ -101,6 +101,11 @@ window.onload = function() {
     currPlace = "la plage";
     if (visiting) {
       beachScene();
+    } else if (favourite) {
+      favourite = false;
+      scene14("beachBG");
+      prevScene = 13;
+      nextScene = 15;
     } else {
       switchPage("next");
     }
@@ -112,6 +117,11 @@ window.onload = function() {
     currPlace = "le d&eacute;sert";
     if (visiting) {
       desertScene();
+    } else if (favourite) {
+      favourite = false;
+      scene14("desertBG");
+      prevScene = 13;
+      nextScene = 15;
     } else {
       switchPage("next");
     }
@@ -123,6 +133,11 @@ window.onload = function() {
     currPlace = "les montagnes";
     if (visiting) {
       mountainScene();
+    } else if (favourite) {
+      favourite = false;
+      scene14("mountainBG");
+      prevScene = 13;
+      nextScene = 15;
     } else {
       switchPage("next");
     }
@@ -134,6 +149,11 @@ window.onload = function() {
     currPlace = "la cascade";
     if (visiting) {
       waterfallScene();
+    } else if (favourite) {
+      favourite = false;
+      scene14("waterfallBG");
+      prevScene = 13;
+      nextScene = 15;
     } else {
       switchPage("next");
     }
@@ -145,6 +165,11 @@ window.onload = function() {
     currPlace = "la for&ecirc;t";
     if (visiting) {
       forestScene();
+    } else if (favourite) {
+      favourite = false;
+      scene14("forestBG");
+      prevScene = 13;
+      nextScene = 15;
     } else {
       switchPage("next");
     }
@@ -386,6 +411,10 @@ window.onload = function() {
     alien.y = bounds.height - 150;
 
     // Set text
+    var text = "Uzek commence &agrave; se sentir fatigu&eacute; de toutes les " +
+    "nouvelles choses qu&rsquo;il a vues. Il se rend compte que sa famille" +
+    " au Strol se demandera o&ugrave; il est.";
+    $("#text").html(text);
   }
 
   function scene9() {
@@ -395,6 +424,12 @@ window.onload = function() {
     var alien = addSprite("alienStand");
     alien.x = 200;
     alien.y = bounds.height - 150;
+
+    var text = "Il r&eacute;fl&eacute;chit de tous les endroits qu&rsquo;il a" +
+    " visit&eacute;s. La plage ensoleill&eacute;e, les grandes montagnes, " +
+    "les &eacute;toiles au-dessus de la for&ecirc;t verte, le bruit apaisant" +
+    " de la cascade et le d&eacute;sert sec qui lui rappelle de Strol.";
+    $("#text").html(text);
   }
 
   function scene10() {
@@ -402,6 +437,12 @@ window.onload = function() {
     var alien = addSprite("alienStand");
     alien.x = 200;
     alien.y = bounds.height - 150;
+
+    var text = "Uzek pense que la Terre est tr&egrave;s belle, mais il" +
+    " pr&eacute;f&egrave;re la simplicit&eacute; de Strol. De plus, il " +
+    "commence &agrave; se sentir coupable pour partir Strol sans dire" +
+    " &agrave; personne. Donc il entre son vaisseau spatial et il retourne chez lui.";
+    $("#text").html(text);
   }
 
   function scene11() {
@@ -426,31 +467,70 @@ window.onload = function() {
     var p1 = addSprite("p1");
     p1.x = bounds.width - 300;
     p1.y = bounds.height - 150;
+
+    var text = "Il retourne &agrave; Strol et il trouve ses parents inquiets." +
+    " Uzek s&rsquo;excuse pour partir sans leur dire.";
+    $("#text").html(text);
   }
 
   function scene12() {
     // Same background as scene11
     scene11();
+
+    var text = "Uzek leur d&eacute;crit tout ce qu&rsquo;il a vu sur la " +
+    "Terre. Il commence &agrave; d&eacute;crire son endroit " +
+    "pr&eacute;f&eacute;r&eacute; en plus d&eacute;tail.";
+    $("#text").html(text);
   }
 
   function scene13() {
     // Same background as scene11
     scene11();
+
+    var text = "Quel est l&rsquo;endroit pr&eacute;f&eacute;r&eacute; d&rsquo;Uzek?";
+    $("#text").html(text);
+    $("#destButtons").show();
+    responseNeeded = true;
+    favourite = true;
   }
 
   function scene14(place) {
     var bg = queue.getResult(place);
     loadBackground(bg);
+
+    var text = "";
+    if (place == "beachBG") {
+
+    } else if (place == "desertBG") {
+
+    } else if (place == "mountainBG") {
+
+    } else if (place == "waterfallBG") {
+
+    } else if (place == "forestBG") {
+
+    }
+    $("#text").html(text);
   }
 
   function scene15() {
     // Same background as scene11
     scene11();
+
+    var text = "Apr&egrave;s Uzek d&eacute;crit tout, ses parents lui disent" +
+    " qu&rsquo;ils soutiennent ses r&ecirc;ves, mais ils souhaitaient" +
+    " qu&rsquo;il a expliqu&eacute; &agrave; l&rsquo;avance.";
+    $("#text").html(text);
   }
 
   function scene16() {
     // Same as scene0
     scene0();
+
+    var text = "Uzek promet qu&rsquo;il ne partira jamais sans leur dire." +
+    " Il veut visiter plus plan&egrave;tes dans l&rsquo;univers, mais la " +
+    "prochaine fois il voyagera avec ses parents.";
+    $("#text").html(text);
   }
 
   function enableChoices() {
