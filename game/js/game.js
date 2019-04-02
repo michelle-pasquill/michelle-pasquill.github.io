@@ -14,6 +14,7 @@ window.onload = function() {
   var nextScene = 1;
 
   var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
+  var currPlace;
   var visiting = false;
 
   var responseNeeded = false;
@@ -96,27 +97,42 @@ window.onload = function() {
 
   $("#beachBtn").click(function() {
     responseNeeded = false;
-    beachScene();
+    currPlace = "la plage";
+    if (visiting) {
+      beachScene();
+    }
   });
 
   $("#desertBtn").click(function() {
     responseNeeded = false;
-    desertScene();
+    currPlace = "le d&eacute;sert";
+    if (visiting) {
+      desertScene();
+    }
   });
 
   $("#mountainBtn").click(function() {
     responseNeeded = false;
-    mountainScene();
+    currPlace = "les montagnes";
+    if (visiting) {
+      mountainScene();
+    }
   });
 
   $("#waterfallBtn").click(function() {
     responseNeeded = false;
-    waterfallScene();
+    currPlace = "la cascade";
+    if (visiting) {
+      waterfallScene();
+    }
   });
 
   $("#forestBtn").click(function() {
     responseNeeded = false;
-    forestScene();
+    currPlace = "la for&ecirc;t";
+    if (visiting) {
+      forestScene();
+    }
   });
 
   // Createjs
@@ -207,7 +223,10 @@ window.onload = function() {
     alien.x = bounds.width / 2;
     alien.y = bounds.height - 150;
 
-
+    var text = "Uzek est un petit martien vert de la plan&egrave;te Strol." +
+     " Strol est une petite plan&egrave;te rouge et s&egrave;che avec une " +
+     "population de seulement 100 martiens.";
+    $("#text").text(text);
   }
 
   function scene1() {
@@ -230,7 +249,9 @@ window.onload = function() {
     p1.x = bounds.width - 300;
     p1.y = bounds.height - 150;
 
-
+    var text = "Uzek habite ici avec ses parents protecteurs, qui ne lui " +
+    "permettent jamais de suivre ses r&ecirc;ves.";
+    $("#text").text(text);
 
   }
 
@@ -239,7 +260,9 @@ window.onload = function() {
     var bg = queue.getResult("spaceBG");
     loadBackground(bg);
 
-
+    var text = "Uzek regarde toujours les &eacute;toiles et les" +
+    " plan&egrave;tes dans le ciel et il r&ecirc;ve de voyager l&rsquo;univers.";
+    $("#text").text(text);
 
   }
 
@@ -256,6 +279,10 @@ window.onload = function() {
 
     // Move ship up
     createjs.Tween.get(ship).to({y: -200}, 5000);
+
+    var text = "Un jour, il d&eacute;cide d&rsquo;entrer dans son vaisseau" +
+    " spatial et il part vers la Terre.";
+    $("#text").text(text);
 
   }
 
@@ -276,6 +303,9 @@ window.onload = function() {
     // Move earth right
     createjs.Tween.get(earth).to({x: 100}, 10000);
 
+    var text = "Uzek arrive &agrave; la Terre, mais la plan&egrave;te est " +
+    "trop grande. Il ne sait pas quel endroit il devrait visiter en premier.";
+    $("#text").text(text);
   }
 
   function scene5() {
@@ -312,11 +342,25 @@ window.onload = function() {
     ship.y = (bounds.height / 2) - 200;
 
     createjs.Tween.get(ship).to({x: earth.x + 250, y: earth.y + 250, scale: 0}, 3000);
+
+    var text = "";
+    $("#text").text(text);
   }
 
   function scene7() {
-    // This scene calls all of the location scenes
-
+    // This scene calls the stored location scene
+    visiting = true;
+    if (currPlace == "la plage") {
+      beachScene();
+    } else if (currPlace == "le d&eacute;sert") {
+      desertScene();
+    } else if (currPlace == "les montagnes") {
+      mountainScene();
+    } else if (currPlace == "la cascade") {
+      waterfallScene();
+    } else if (currPlace == "la for&ecirc;t") {
+      forestScene();
+    }
   }
 
   function scene8() {
@@ -396,7 +440,6 @@ window.onload = function() {
   function enableChoices() {
     // If there are more than one unvisited places, then show options
     if (unvisited.length > 1) {
-      visiting = true;
       responseNeeded = true;
       $("#destButtons").show();
       // Hide any button that is visited
