@@ -638,6 +638,13 @@ window.onload = function() {
     var alien = addSprite("alienStand");
     alien.x = 200;
     alien.y = bounds.height - 150;
+
+    var text = "Uzek arrive &agrave; la plage et il trouve beaucoup de " +
+    "personnes jouent sous le soleil. Il y a des personnes qui font du " +
+    "surf et les autres qui font de la voile. Il aime la plage parce " +
+    "qu&rsquo;il n&rsquo;y a pas choses comme cela au Strol et il " +
+    "semble que les personnes s&rsquo;amusent.";
+    $("#text").html(text);
   }
 
   function desertScene() {
@@ -652,6 +659,11 @@ window.onload = function() {
     var alien = addSprite("alienStand");
     alien.x = 200;
     alien.y = bounds.height - 130;
+
+    var text = "Au d&eacute;sert, il y a beaucoup de sable et de cactus. " +
+    "Le sable souffle sur son visage, mais heureusement il porte un casque" +
+    " qui le prot&egrave;ge. Le d&eacute;sert sec lui rappelle de Strol.";
+    $("#text").html(text);
   }
 
   function mountainScene() {
@@ -666,6 +678,11 @@ window.onload = function() {
     var alien = addSprite("alienStand");
     alien.x = 200;
     alien.y = bounds.height - 150;
+
+    var text = "Uzek est surpris avec la grande taille des montagnes et il " +
+    "n&rsquo;a jamais rien vu une chose aussi grand qu&rsquo;eux. " +
+    "Il ne peut pas voir le sommet des montagnes apr&egrave;s les nuages.";
+    $("#text").html(text);
   }
 
   function waterfallScene() {
@@ -680,6 +697,12 @@ window.onload = function() {
     var alien = addSprite("alienStand");
     alien.x = 200;
     alien.y = bounds.height - 150;
+
+    var text = "C&rsquo;est la nuit quand Uzek arrive &agrave; une cascade." +
+    " Strol n&rsquo;a pas l&rsquo;eau, alors c&rsquo;est une chose" +
+    " qu&rsquo;Uzek n&rsquo;a jamais vue. Il aime l&rsquo;&eacute;coulement" +
+    " apaisant de la cascade et le beau reflet des &eacute;toiles.";
+    $("#text").html(text);
   }
 
   function forestScene() {
@@ -694,6 +717,12 @@ window.onload = function() {
     var alien = addSprite("alienStand");
     alien.x = 200;
     alien.y = bounds.height - 150;
+
+    var text = "C&rsquo;est la nuit quand Uzek arrive &agrave; la " +
+    "for&ecirc;t et il fait un peu froid. Dans la for&ecirc;t il peut" +
+    " &eacute;couter les hurlements des loups et le bruit apaisant de vent" +
+    " entre les arbres. Il aime la vue des &eacute;toiles de dessous les arbres.";
+    $("#text").html(text);
   }
 
 };
