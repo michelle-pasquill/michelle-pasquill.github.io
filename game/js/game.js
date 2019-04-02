@@ -483,15 +483,31 @@ window.onload = function() {
 
     var text = "";
     if (place == "beachBG") {
-
+      text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;," +
+      " la plage. Il d&eacute;crit le surf, le voile, le sable et" +
+      " l&rsquo;eau. Son part pr&eacute;f&eacute;r&eacute; est la chaleur" +
+      " du soleil et toutes les activit&eacute;s que vous pouvez faire &agrave; la plage.";
     } else if (place == "desertBG") {
-
+      text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;, le" +
+      " d&eacute;sert. Il aime le calme et la chaleur du d&eacute;sert." +
+      " De plus, le d&eacute;sert est le plus similaire endroit avec sa" +
+      " plan&egrave;te Strol.";
     } else if (place == "mountainBG") {
-
+      text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;, les" +
+      " montagnes. Il aime la grande taille des montagnes et il est "+
+      "tr&egrave;s curieux avec les nuages. Le myst&egrave;re du sommet" +
+      " des montages est la raison les montagnes sont l&rsquo;endroit " +
+      "pr&eacute;f&eacute;r&eacute; d&rsquo;Uzek.":
     } else if (place == "waterfallBG") {
-
+      text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;, la" +
+      " cascade. Il d&eacute;crit l&rsquo;eau et l&rsquo;&eacute;coulement " +
+      "apaisant de la cascade. Il aime le brouillard par la cascade et " +
+      "les arc-en-ciel qu&rsquo;il produit.";
     } else if (place == "forestBG") {
-
+      text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;, la" +
+      " for&ecirc;t. Il aime les animaux qui habitent dans la for&ecirc;t et" +
+      " toutes les plantes vertes. Uzek pense que la for&ecirc;t verte est " +
+      "plus belle que le sable rouge de Strol.";
     }
     $("#text").html(text);
   }

@@ -24,6 +24,10 @@
   align-items: stretch;
 }
 
+#text {
+  font-size: 20px;
+}
+
 #destButtons {
   display: flex;
   flex-direction: row;
