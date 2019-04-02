@@ -104,6 +104,7 @@ window.onload = function() {
     } else {
       switchPage("next");
     }
+    $("#destButtons").hide();
   });
 
   $("#desertBtn").click(function() {
@@ -114,6 +115,7 @@ window.onload = function() {
     } else {
       switchPage("next");
     }
+    $("#destButtons").hide();
   });
 
   $("#mountainBtn").click(function() {
@@ -124,6 +126,7 @@ window.onload = function() {
     } else {
       switchPage("next");
     }
+    $("#destButtons").hide();
   });
 
   $("#waterfallBtn").click(function() {
@@ -134,6 +137,7 @@ window.onload = function() {
     } else {
       switchPage("next");
     }
+    $("#destButtons").hide();
   });
 
   $("#forestBtn").click(function() {
@@ -144,6 +148,7 @@ window.onload = function() {
     } else {
       switchPage("next");
     }
+    $("#destButtons").hide();
   });
 
   // Createjs
