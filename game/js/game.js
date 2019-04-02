@@ -226,7 +226,7 @@ window.onload = function() {
     var text = "Uzek est un petit martien vert de la plan&egrave;te Strol." +
      " Strol est une petite plan&egrave;te rouge et s&egrave;che avec une " +
      "population de seulement 100 martiens.";
-    $("#text").text(text);
+    $("#text").html(text);
   }
 
   function scene1() {
@@ -251,7 +251,7 @@ window.onload = function() {
 
     var text = "Uzek habite ici avec ses parents protecteurs, qui ne lui " +
     "permettent jamais de suivre ses r&ecirc;ves.";
-    $("#text").text(text);
+    $("#text").html(text);
 
   }
 
@@ -262,7 +262,7 @@ window.onload = function() {
 
     var text = "Uzek regarde toujours les &eacute;toiles et les" +
     " plan&egrave;tes dans le ciel et il r&ecirc;ve de voyager l&rsquo;univers.";
-    $("#text").text(text);
+    $("#text").html(text);
 
   }
 
@@ -282,7 +282,7 @@ window.onload = function() {
 
     var text = "Un jour, il d&eacute;cide d&rsquo;entrer dans son vaisseau" +
     " spatial et il part vers la Terre.";
-    $("#text").text(text);
+    $("#text").html(text);
 
   }
 
@@ -305,7 +305,7 @@ window.onload = function() {
 
     var text = "Uzek arrive &agrave; la Terre, mais la plan&egrave;te est " +
     "trop grande. Il ne sait pas quel endroit il devrait visiter en premier.";
-    $("#text").text(text);
+    $("#text").html(text);
   }
 
   function scene5() {
@@ -323,7 +323,7 @@ window.onload = function() {
 
     // Set question text
     var question = "Quel endroit pensez-vous Uzek devrait visiter en premier?";
-    $("#text").text(question);
+    $("#text").html(question);
 
     enableChoices();
   }
@@ -343,8 +343,8 @@ window.onload = function() {
 
     createjs.Tween.get(ship).to({x: earth.x + 250, y: earth.y + 250, scale: 0}, 3000);
 
-    var text = "";
-    $("#text").text(text);
+    var text = "D&rsquo;abord, Uzek d&eacute;cide de visiter " + currPlace + ".";
+    $("#text").html(text);
   }
 
   function scene7() {
@@ -479,7 +479,7 @@ window.onload = function() {
     if (unvisited.length >= 1) {
       // Set question text
       var question = "Quel endroit pensez-vous Uzek devrait visiter ensuite?";
-      $("#text").text(question);
+      $("#text").html(question);
       // Set buttons
       enableChoices();
     } else {
