@@ -10,7 +10,6 @@ window.onload = function() {
   var queue;
   var loadBar;
 
-  var prevScene = 0;
   var nextScene = 1;
 
   var unvisited = ["Beach", "Desert", "Mountains", "Waterfall", "Forest"];
@@ -21,15 +20,10 @@ window.onload = function() {
   var responseNeeded = false;
 
   // Page button listeners
-  function switchPage(type) {
+  function switchPage() {
     resetSprites();
 
-    var scene;
-    if (type == "prev") {
-      scene = prevScene;
-    } else {
-      scene = nextScene;
-    }
+    var scene = nextScene;
 
     if (scene == 0) {
       scene0();
@@ -67,26 +61,15 @@ window.onload = function() {
       scene16();
     }
 
-    // Update prev and next
+    // Update next
     if (scene == 0) {
-      prevScene = 0;
       nextScene = 1;
     } else if (scene == 16) {
-      prevScene = scene - 1;
       nextScene = scene;
     } else {
-      prevScene = scene - 1;
       nextScene = scene + 1;
     }
   }
-
-  $("#prev").click(function() {
-    if (!responseNeeded && !visiting) {
-      switchPage("prev");
-    } else if (!responseNeeded && visiting) {
-      nextPlace();
-    }
-  });
 
   $("#next").click(function() {
     if (!responseNeeded && !visiting) {
@@ -104,7 +87,6 @@ window.onload = function() {
     } else if (favourite) {
       favourite = false;
       scene14("beachBG");
-      prevScene = 13;
       nextScene = 15;
     } else {
       switchPage("next");
@@ -120,7 +102,6 @@ window.onload = function() {
     } else if (favourite) {
       favourite = false;
       scene14("desertBG");
-      prevScene = 13;
       nextScene = 15;
     } else {
       switchPage("next");
@@ -136,7 +117,6 @@ window.onload = function() {
     } else if (favourite) {
       favourite = false;
       scene14("mountainBG");
-      prevScene = 13;
       nextScene = 15;
     } else {
       switchPage("next");
@@ -152,7 +132,6 @@ window.onload = function() {
     } else if (favourite) {
       favourite = false;
       scene14("waterfallBG");
-      prevScene = 13;
       nextScene = 15;
     } else {
       switchPage("next");
@@ -168,7 +147,6 @@ window.onload = function() {
     } else if (favourite) {
       favourite = false;
       scene14("forestBG");
-      prevScene = 13;
       nextScene = 15;
     } else {
       switchPage("next");
@@ -452,7 +430,7 @@ window.onload = function() {
     // Spaceship
     var ship = addSprite("ship");
     ship.x = (bounds.width / 2) - 100;
-    ship.y = bounds.height - 150;
+    ship.y = bounds.height - 250;
 
     // Add alien
     var alien = addSprite("alienStand");
@@ -490,6 +468,11 @@ window.onload = function() {
     var text = "Quel est l&rsquo;endroit pr&eacute;f&eacute;r&eacute; d&rsquo;Uzek?";
     $("#text").html(text);
     $("#destButtons").show();
+    $("#beachBtn").show();
+    $("#desertBtn").show();
+    $("#mountainBtn").show();
+    $("#waterfallBtn").show();
+    $("#forestBtn").show();
     responseNeeded = true;
     favourite = true;
   }
