@@ -558,15 +558,15 @@ window.onload = function() {
       var text = "Finalement, Uzek visite ";
       // Otherwise show the last place
       if (unvisited.includes("Beach")) {
-        beachScene(text + "la plage");
+        beachScene(text + "la plage. ");
       } else if (unvisited.includes("Desert")) {
-        desertScene(text + "le d&eacute;sert");
+        desertScene(text + "le d&eacute;sert. ");
       } else if (unvisited.includes("Mountains")) {
-        mountainScene(text + "les montagnes");
+        mountainScene(text + "les montagnes. ");
       } else if (unvisited.includes("Waterfall")) {
-        waterfallScene(text + "la cascade");
+        waterfallScene(text + "la cascade. ");
       } else if (unvisited.includes("Forest")) {
-        forestScene(text + "la for&ecirc;t");
+        forestScene(text + "la for&ecirc;t. ");
       }
     }
   }

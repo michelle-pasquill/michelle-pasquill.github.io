@@ -26,17 +26,25 @@
 
 #text {
   font-size: 20px;
+  text-align: center;
+  margin: 10px;
 }
 
 #destButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  bottom: 0px;
+}
+
+#next {
+  display: flex;
+  align-items: center;
 }
 
 .btn {
   padding: 5px;
-  font-size: 14px;
+  font-size: 20px;
   color: #161616;
   background-color: #EFEFEF;
   border: 2px solid #AAAAAA;
