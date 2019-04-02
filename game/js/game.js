@@ -263,7 +263,7 @@ window.onload = function() {
     earth.x = 100;
     earth.y = bounds.height - 300;
 
-    createjs.Tween.get(ship).to({x: earth.x, y: earth.y, scale: 0}, 3000);
+    createjs.Tween.get(ship).to({x: earth.x + 250, y: earth.y + 250, scale: 0}, 3000);
   }
 
   function scene7() {
@@ -362,7 +362,7 @@ window.onload = function() {
     var desert = addSprite("desertBG");
     desert.x = bounds.width;
 
-    var end = (0 - bound.width);
+    var end = (0 - bounds.width);
 
     createjs.Tween.get(beach).to({x: 0}, 1000);
 
