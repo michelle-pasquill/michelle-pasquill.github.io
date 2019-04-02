@@ -83,7 +83,7 @@ window.onload = function() {
     responseNeeded = false;
     currPlace = "la plage";
     if (visiting) {
-      beachScene();
+      beachScene("");
     } else if (favourite) {
       favourite = false;
       scene14("beachBG");
@@ -98,7 +98,7 @@ window.onload = function() {
     responseNeeded = false;
     currPlace = "le d&eacute;sert";
     if (visiting) {
-      desertScene();
+      desertScene("");
     } else if (favourite) {
       favourite = false;
       scene14("desertBG");
@@ -113,7 +113,7 @@ window.onload = function() {
     responseNeeded = false;
     currPlace = "les montagnes";
     if (visiting) {
-      mountainScene();
+      mountainScene("");
     } else if (favourite) {
       favourite = false;
       scene14("mountainBG");
@@ -128,7 +128,7 @@ window.onload = function() {
     responseNeeded = false;
     currPlace = "la cascade";
     if (visiting) {
-      waterfallScene();
+      waterfallScene("");
     } else if (favourite) {
       favourite = false;
       scene14("waterfallBG");
@@ -143,7 +143,7 @@ window.onload = function() {
     responseNeeded = false;
     currPlace = "la for&ecirc;t";
     if (visiting) {
-      forestScene();
+      forestScene("");
     } else if (favourite) {
       favourite = false;
       scene14("forestBG");
@@ -370,15 +370,15 @@ window.onload = function() {
     // This scene calls the stored location scene
     visiting = true;
     if (currPlace == "la plage") {
-      beachScene();
+      beachScene("");
     } else if (currPlace == "le d&eacute;sert") {
-      desertScene();
+      desertScene("");
     } else if (currPlace == "les montagnes") {
-      mountainScene();
+      mountainScene("");
     } else if (currPlace == "la cascade") {
-      waterfallScene();
+      waterfallScene("");
     } else if (currPlace == "la for&ecirc;t") {
-      forestScene();
+      forestScene("");
     }
   }
 
@@ -555,17 +555,18 @@ window.onload = function() {
       }
     } else {
       visiting = false;
+      var text = "Finalement, Uzek visite ";
       // Otherwise show the last place
       if (unvisited.includes("Beach")) {
-        beachScene();
+        beachScene(text + "la plage");
       } else if (unvisited.includes("Desert")) {
-        desertScene();
+        desertScene(text + "le d&eacute;sert");
       } else if (unvisited.includes("Mountains")) {
-        mountainScene();
+        mountainScene(text + "les montagnes");
       } else if (unvisited.includes("Waterfall")) {
-        waterfallScene();
+        waterfallScene(text + "la cascade");
       } else if (unvisited.includes("Forest")) {
-        forestScene();
+        forestScene(text + "la for&ecirc;t");
       }
     }
   }
@@ -625,7 +626,7 @@ window.onload = function() {
 
   }
 
-  function beachScene() {
+  function beachScene(last) {
     // Remove from unvisited
     var i = unvisited.indexOf("Beach");
     unvisited.splice(i, 1);
@@ -638,7 +639,7 @@ window.onload = function() {
     alien.x = 200;
     alien.y = bounds.height - 150;
 
-    var text = "Uzek arrive &agrave; la plage et il trouve beaucoup de " +
+    var text = last + "Uzek arrive &agrave; la plage et il trouve beaucoup de " +
     "personnes jouent sous le soleil. Il y a des personnes qui font du " +
     "surf et les autres qui font de la voile. Il aime la plage parce " +
     "qu&rsquo;il n&rsquo;y a pas choses comme cela au Strol et il " +
@@ -646,7 +647,7 @@ window.onload = function() {
     $("#text").html(text);
   }
 
-  function desertScene() {
+  function desertScene(last) {
     // Remove from unvisited
     var i = unvisited.indexOf("Desert");
     unvisited.splice(i, 1);
@@ -659,13 +660,13 @@ window.onload = function() {
     alien.x = 200;
     alien.y = bounds.height - 130;
 
-    var text = "Au d&eacute;sert, il y a beaucoup de sable et de cactus. " +
+    var text = last + "Au d&eacute;sert, il y a beaucoup de sable et de cactus. " +
     "Le sable souffle sur son visage, mais heureusement il porte un casque" +
     " qui le prot&egrave;ge. Le d&eacute;sert sec lui rappelle de Strol.";
     $("#text").html(text);
   }
 
-  function mountainScene() {
+  function mountainScene(last) {
     // Remove from unvisited
     var i = unvisited.indexOf("Mountains");
     unvisited.splice(i, 1);
@@ -678,13 +679,13 @@ window.onload = function() {
     alien.x = 200;
     alien.y = bounds.height - 150;
 
-    var text = "Uzek est surpris avec la grande taille des montagnes et il " +
+    var text = last + "Uzek est surpris avec la grande taille des montagnes et il " +
     "n&rsquo;a jamais rien vu une chose aussi grand qu&rsquo;eux. " +
     "Il ne peut pas voir le sommet des montagnes apr&egrave;s les nuages.";
     $("#text").html(text);
   }
 
-  function waterfallScene() {
+  function waterfallScene(last) {
     // Remove from unvisited
     var i = unvisited.indexOf("Waterfall");
     unvisited.splice(i, 1);
@@ -697,14 +698,14 @@ window.onload = function() {
     alien.x = 200;
     alien.y = bounds.height - 150;
 
-    var text = "C&rsquo;est la nuit quand Uzek arrive &agrave; une cascade." +
+    var text = last + "C&rsquo;est la nuit quand Uzek arrive &agrave; une cascade." +
     " Strol n&rsquo;a pas l&rsquo;eau, alors c&rsquo;est une chose" +
     " qu&rsquo;Uzek n&rsquo;a jamais vue. Il aime l&rsquo;&eacute;coulement" +
     " apaisant de la cascade et le beau reflet des &eacute;toiles.";
     $("#text").html(text);
   }
 
-  function forestScene() {
+  function forestScene(last) {
     // Remove from unvisited
     var i = unvisited.indexOf("Forest");
     unvisited.splice(i, 1);
@@ -717,7 +718,7 @@ window.onload = function() {
     alien.x = 200;
     alien.y = bounds.height - 150;
 
-    var text = "C&rsquo;est la nuit quand Uzek arrive &agrave; la " +
+    var text = last + "C&rsquo;est la nuit quand Uzek arrive &agrave; la " +
     "for&ecirc;t et il fait un peu froid. Dans la for&ecirc;t il peut" +
     " &eacute;couter les hurlements des loups et le bruit apaisant de vent" +
     " entre les arbres. Il aime la vue des &eacute;toiles de dessous les arbres.";
