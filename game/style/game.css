@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: space-between;
 }
 
 #text {
@@ -33,7 +34,7 @@
 #destButtons {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   bottom: 0px;
 }
 
