@@ -1,3 +1,7 @@
+footer {
+  text-align: center;
+}
+
 #game {
   margin: auto;
   width: 990px;
@@ -53,6 +57,7 @@
   border: 2px solid #AAAAAA;
   border-radius: 5px;
   text-align: center;
+  margin: 3px;
 }
 
 .btn:hover {
