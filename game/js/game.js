@@ -488,7 +488,7 @@ window.onload = function() {
     if (place == "beachBG") {
       text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;," +
       " la plage. Il d&eacute;crit le surf, le voile, le sable et" +
-      " l&rsquo;eau. Son part pr&eacute;f&eacute;r&eacute; est la chaleur" +
+      " l&rsquo;eau. Son partie pr&eacute;f&eacute;r&eacute; est la chaleur" +
       " du soleil et toutes les activit&eacute;s que vous pouvez faire &agrave; la plage.";
     } else if (place == "desertBG") {
       text = "Uzek parle de son endroit pr&eacute;f&eacute;r&eacute;, le" +
