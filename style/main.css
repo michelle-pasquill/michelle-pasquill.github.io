@@ -6,6 +6,36 @@ body {
 }
 
 header {
+  font-size: 26px;
+  color: white;
+  text-align: center;
+  background-color:  #383838;
+  cursor: pointer;
+  border-bottom: 2px solid #AAAAAA;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn {
+  padding: 5px;
   font-size: 20px;
-  color: black;
+  color: #161616;
+  background-color: #EFEFEF;
+  border: 2px solid #AAAAAA;
+  border-radius: 5px;
+  text-align: center;
+  margin: 3px;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #383838;
+  cursor: pointer;
 }
