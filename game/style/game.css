@@ -65,3 +65,8 @@ footer {
   background-color: #383838;
   cursor: pointer;
 }
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}

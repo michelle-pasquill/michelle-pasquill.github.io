@@ -160,6 +160,8 @@ window.onload = function() {
 
     $("#destButtons").hide();
 
+    $("#text").html("Loading ...");
+
     createjs.Ticker.framerate = 60;
     createjs.Ticker.addEventListener("tick", stage);
 
@@ -242,9 +244,10 @@ window.onload = function() {
     alien.x = bounds.width / 2;
     alien.y = bounds.height - 150;
 
-    var text = "Uzek est un petit martien vert de la plan&egrave;te Strol." +
+    var text = "<div class='title'>Uzek: le petit voyageur</div>"
+    + "<div>Uzek est un petit martien vert de la plan&egrave;te Strol." +
      " Strol est une petite plan&egrave;te rouge et s&egrave;che avec une " +
-     "population de seulement 100 martiens.";
+     "population de seulement 100 martiens.</div>";
     $("#text").html(text);
   }
 
@@ -526,9 +529,10 @@ window.onload = function() {
     // Same as scene0
     scene0();
 
-    var text = "Uzek promet qu&rsquo;il ne partira jamais sans leur dire." +
+    var text = "<div>Uzek promet qu&rsquo;il ne partira jamais sans leur dire." +
     " Il veut visiter plus plan&egrave;tes dans l&rsquo;univers, mais la " +
-    "prochaine fois il voyagera avec ses parents.";
+    "prochaine fois il voyagera avec ses parents.</div>" +
+    "<div class='title'>LA FIN</div>";
     $("#text").html(text);
   }
 
